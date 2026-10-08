@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meet the Team | BSIT</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="team-page">
+      <div class="team-heading">
+        <p class="eyebrow">BSIT · OUR PEOPLE</p>
+        <h1>Meet the team</h1>
+        <p>Five people, five paths in technology.</p>
+      </div>
+
+      <section class="team-carousel" aria-label="Meet the team">
+        <div class="carousel-window">
+          <div class="carousel-track">
+            <article class="team-card">
+              <div class="card-brand">BSIT <span>TEAM</span></div>
+              <div class="member-art art-security">
+                <img src="assets/member1.png" alt="Portrait of Rhian Oquendo">
+              </div>
+              <p class="card-kicker">CYBERSECURITY</p>
+              <h2>Rhian Oquendo</h2>
+              <p class="member-role">Cybersecurity Lead</p>
+              <p class="member-description">Protects systems and data by monitoring threats, managing security risks, and preventing cyberattacks.</p>
+              <a class="card-button" href="#branches">Meet the team</a>
+            </article>
+
+            <article class="team-card">
+              <div class="card-brand">BSIT <span>TEAM</span></div>
+              <div class="member-art art-web">
+                <img src="assets/member2.png" alt="Portrait of Kevin Sastre">
+              </div>
+              <p class="card-kicker">CLOUD COMPUTING</p>
+              <h2>Kevin Sastre</h2>
+              <p class="member-role">Cloud Computing Lead</p>
+              <p class="member-description">Manages cloud systems, services, and resources to ensure secure, reliable, and efficient operations.</p>
+              <a class="card-button" href="#branches">Meet the team</a>
+            </article>
+
+            <article class="team-card">
+              <div class="card-brand">BSIT <span>TEAM</span></div>
+              <div class="member-art art-data">
+               <img src="assets/member3.png" alt="Portrait of Earl Christian Cuesta">
+              </div>
+              <p class="card-kicker">SOFTWARE DEVELOPMENT</p>
+              <h2>Earl Christian Cuesta</h2>
+              <p class="member-role">Software Development Lead</p>
+              <p class="member-description">Leads the team in building, testing, and improving software applications to meet user and project requirements.</p>
+              <a class="card-button" href="#branches">Meet the team</a>
+            </article>
+
+            <article class="team-card">
+              <div class="card-brand">BSIT <span>TEAM</span></div>
+              <div class="member-art art-network">
+              <img src="assets/member4.png" alt="Portrait of Earl Christian Cuesta">
+              </div>
+              <p class="card-kicker">DATA SCIENCE AND AI</p>
+              <h2>Gabriel Remon</h2>
+              <p class="member-role">Data Science and AI Lead</p>
+              <p class="member-description">Leads the team in analyzing data, building AI models, and using insights to solve problems and support better decisions.</p>
+              <a class="card-button" href="#branches">Meet the team</a>
+            </article>
+
+            <article class="team-card">
+              <div class="card-brand">BSIT <span>TEAM</span></div>
+              <div class="member-art art-support">
+              <img src="assets/member5.png" alt="Portrait of Lanz Andrew Fernandez">
+              </div>
+              <p class="card-kicker">NETWORK INFRASTRUCTURE</p>
+              <h2>Lanz Andrew Fernandez</h2>
+              <p class="member-role">Network Infrastructure Lead</p>
+              <p class="member-description">Manages network systems, servers, and connectivity to ensure reliable, secure, and efficient communication.</p>
+              <a class="card-button" href="#branches">Meet the team</a>
+            </article>
+          </div>
+        </div>
+
+        <button class="carousel-arrow previous" type="button" aria-label="Previous team member">&#8249;</button>
+        <button class="carousel-arrow next" type="button" aria-label="Next team member">&#8250;</button>
+
+        <div class="carousel-dots" aria-label="Choose a team member">
+          <button class="dot active" type="button" aria-label="Show member 1" aria-current="true"></button>
+          <button class="dot" type="button" aria-label="Show member 2"></button>
+          <button class="dot" type="button" aria-label="Show member 3"></button>
+          <button class="dot" type="button" aria-label="Show member 4"></button>
+          <button class="dot" type="button" aria-label="Show member 5"></button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const track = document.querySelector(".carousel-track");
+      const cards = [...document.querySelectorAll(".team-card")];
+      const dots = [...document.querySelectorAll(".dot")];
+      let activeIndex = 0;
+
+      function showMember(index) {
+        activeIndex = (index + cards.length) % cards.length;
+
+        cards.forEach((card, cardIndex) => {
+          card.classList.toggle("active", cardIndex === activeIndex);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          const isActive = dotIndex === activeIndex;
+          dot.classList.toggle("active", isActive);
+          if (isActive) dot.setAttribute("aria-current", "true");
+          else dot.removeAttribute("aria-current");
+        });
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(track).columnGap);
+        const offset = activeIndex * (cardWidth + gap) + cardWidth / 2;
+        track.style.transform = `translateX(calc(50vw - ${offset}px))`;
+      }
+
+      document.querySelector(".previous").addEventListener("click", () => showMember(activeIndex - 1));
+      document.querySelector(".next").addEventListener("click", () => showMember(activeIndex + 1));
+      dots.forEach((dot, index) => dot.addEventListener("click", () => showMember(index)));
+      window.addEventListener("resize", () => showMember(activeIndex));
+
+      showMember(0);
+      setInterval(() => showMember(activeIndex + 1), 5000);
+    </script>
+  </body>
+</html>
