@@ -185,6 +185,128 @@ html, body {
   font-weight: 700;
 }
 
+@media (max-width: 700px) {
+  body {
+    padding: 20px;
+  }
+
+  header {
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  header img {
+    height: 36px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  nav {
+    gap: 16px;
+    margin-right: 0;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .home {
+    padding-top: 60px;
+  }
+
+  .home .content {
+    padding: 0 10px;
+  }
+
+  .home .content h1 {
+    font-size: 28px;
+  }
+
+  .btn {
+    padding: 12px 28px;
+  }
+
+  .about {
+    padding-top: 20px;
+  }
+
+  .sub-header {
+    width: 95%;
+  }
+
+  .about-hero {
+    width: 100%;
+    padding: 24px 16px;
+    box-sizing: border-box;
+  }
+
+  .about-hero h1 {
+    font-size: 28px;
+  }
+
+  .about-hero p {
+    font-size: 16px;
+  }
+
+  .about-hero blockquote {
+    font-size: 20px;
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  header nav a {
+    padding: 12px 0;
+  }
+
+  header nav .indicator {
+    display: none;
+  }
+
+  header .navbar-collapse {
+    background: #eef5f3;
+  }
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 12px;
+  }
+
+  .home .content h1 {
+    font-size: 24px;
+  }
+
+  .hero {
+    padding: 60px 12px;
+  }
+
+  .about-hero {
+    padding: 20px 12px;
+  }
+
+  .about-hero h1 {
+    font-size: 24px;
+  }
+
+  .about-hero p {
+    font-size: 15px;
+  }
+
+  .about-hero blockquote {
+    font-size: 17px;
+  }
+
+  .btn {
+    padding: 10px 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
